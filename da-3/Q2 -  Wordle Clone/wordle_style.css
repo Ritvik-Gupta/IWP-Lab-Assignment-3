@@ -104,7 +104,6 @@ body {
 	font-size: 2em;
 	color: white;
 	border: 0.05em solid hsl(240, 2%, 23%);
-	border-radius: 5% 25%;
 	text-transform: uppercase;
 	font-weight: bold;
 	display: flex;

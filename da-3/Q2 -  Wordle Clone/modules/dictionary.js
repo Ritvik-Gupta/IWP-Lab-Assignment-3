@@ -1,4 +1,4 @@
-const dictionary = [
+const DICTIONARY = [
 	"aahed",
 	"aalii",
 	"aargh",
@@ -12970,5 +12970,5 @@ const dictionary = [
 	"rower",
 	"artsy",
 	"rural",
-	"shave"
+	"shave",
 ]
