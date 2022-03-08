@@ -4,9 +4,9 @@ const DANCE_ANIMATION_DURATION = 500
 const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const guessGrid = document.querySelector("[data-guess-grid]")
-const offsetFromDate = new Date(2022, 0, 1)
-const msOffset = Date.now() - offsetFromDate
-const dayOffset = msOffset / 1000 / 60 / 60 / 24
+
+const OFFSET_FROM_DATE = new Date(2022, 0, 1)
+const dayOffset = (Date.now() - OFFSET_FROM_DATE) / (1000 * 60 * 60 * 24)
 const targetWord = targetWords[Math.floor(dayOffset)]
 
 startInteraction()
@@ -22,37 +22,15 @@ function stopInteraction() {
 }
 
 function handleMouseClick(e) {
-	if (e.target.matches("[data-key]")) {
-		pressKey(e.target.dataset.key)
-		return
-	}
-
-	if (e.target.matches("[data-enter]")) {
-		submitGuess()
-		return
-	}
-
-	if (e.target.matches("[data-delete]")) {
-		deleteKey()
-		return
-	}
+	if (e.target.matches("[data-key]")) return pressKey(e.target.dataset.key)
+	if (e.target.matches("[data-enter]")) return submitGuess()
+	if (e.target.matches("[data-delete]")) return deleteKey()
 }
 
 function handleKeyPress(e) {
-	if (e.key === "Enter") {
-		submitGuess()
-		return
-	}
-
-	if (e.key === "Backspace" || e.key === "Delete") {
-		deleteKey()
-		return
-	}
-
-	if (e.key.match(/^[a-z]$/)) {
-		pressKey(e.key)
-		return
-	}
+	if (e.key === "Enter") return submitGuess()
+	if (e.key === "Backspace" || e.key === "Delete") return deleteKey()
+	if (e.key.match(/^[a-z]$/)) return pressKey(e.key)
 }
 
 function pressKey(key) {
