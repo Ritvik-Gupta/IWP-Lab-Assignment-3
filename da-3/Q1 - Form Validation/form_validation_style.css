@@ -32,8 +32,7 @@ body {
 	margin-bottom: 5px;
 }
 
-.form-control input,
-.form-control textarea {
+.form-control [data-input-for] {
 	padding: 15px;
 	border: 2px solid #ccc;
 	border-radius: 4px;
@@ -45,18 +44,17 @@ body {
 	font-family: inherit;
 }
 
-.form-control input:focus,
-.form-control textarea:focus {
+.form-control [data-input-for]:focus {
 	outline: none;
 	border-color: #777;
 	color: #637373;
 }
 
-.form-control.success input {
+.form-control.success [data-input-for] {
 	border-color: #2ecc71;
 }
 
-.form-control.error input {
+.form-control.error [data-input-for] {
 	border-color: #e74c3c;
 }
 
@@ -74,14 +72,14 @@ body {
 
 /* Extra */
 
-#multistepsform {
+#multi-step-form {
 	width: 45%;
 	margin: 50px auto;
 	position: relative;
 	text-align: center;
 }
 
-#multistepsform fieldset {
+#multi-step-form fieldset {
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
@@ -93,11 +91,11 @@ body {
 	position: relative;
 }
 
-#multistepsform fieldset:not(.active) {
+#multi-step-form fieldset:not(.active) {
 	display: none;
 }
 
-#multistepsform [data-action] {
+#multi-step-form [data-action] {
 	width: 100px;
 	background: #ff9a76;
 	font-weight: bold;
@@ -110,20 +108,20 @@ body {
 	margin: 10px 5px;
 }
 
-#multistepsform [data-action]:hover,
-#multistepsform [data-action]:focus {
+#multi-step-form [data-action]:hover,
+#multi-step-form [data-action]:focus {
 	box-shadow: 0 0 0 2px #f08a5d, 0 0 0 3px #ff9076;
 	color: #fff;
 }
 
-#multistepsform .fs-title {
+#multi-step-form .fs-title {
 	font-size: 15px;
 	text-transform: uppercase;
 	color: #2c3e50;
 	margin-bottom: 10px;
 }
 
-#multistepsform .fs-subtitle {
+#multi-step-form .fs-subtitle {
 	font-weight: normal;
 	font-size: 13px;
 	color: #666;
@@ -187,7 +185,7 @@ body {
 	color: white;
 }
 
-#multistepsform fieldset.shrink-fade {
+#multi-step-form fieldset.shrink-fade {
 	position: absolute;
 	transform: scale(1);
 	opacity: 1;
@@ -201,7 +199,7 @@ body {
 	}
 }
 
-#multistepsform fieldset.slide-from-left {
+#multi-step-form fieldset.slide-from-left {
 	position: absolute;
 	left: 100%;
 	opacity: 0;
@@ -215,7 +213,7 @@ body {
 	}
 }
 
-#multistepsform fieldset.slide-from-right {
+#multi-step-form fieldset.slide-from-right {
 	position: absolute;
 	right: 100%;
 	opacity: 0;
