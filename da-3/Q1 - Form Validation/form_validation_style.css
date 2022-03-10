@@ -35,7 +35,7 @@ body {
 .form-control input,
 .form-control textarea {
 	padding: 15px;
-	border: 1px solid #ccc;
+	border: 2px solid #ccc;
 	border-radius: 4px;
 	margin-bottom: 10px;
 	width: 100%;
@@ -97,7 +97,7 @@ body {
 	display: none;
 }
 
-#multistepsform .action-button {
+#multistepsform [data-action] {
 	width: 100px;
 	background: #ff9a76;
 	font-weight: bold;
@@ -110,8 +110,8 @@ body {
 	margin: 10px 5px;
 }
 
-#multistepsform .action-button:hover,
-#multistepsform .action-button:focus {
+#multistepsform [data-action]:hover,
+#multistepsform [data-action]:focus {
 	box-shadow: 0 0 0 2px #f08a5d, 0 0 0 3px #ff9076;
 	color: #fff;
 }

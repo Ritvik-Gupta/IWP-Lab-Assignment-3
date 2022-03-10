@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="form_style.css" />
+		<link rel="stylesheet" href="form_validation_style.css" />
 
 		<script type="text/javascript" src="main.js" defer></script>
 
@@ -35,10 +35,10 @@
 				</div>
 				<div class="form-control">
 					<label for="Confirm Password">Confirm Password</label>
-					<input type="password" id="Confirm Password" />
+					<input type="password" id="confirm-password" />
 					<small>Error message</small>
 				</div>
-				<input type="button" name="next" class="next action-button" value="Next" />
+				<input type="button" name="next" class="next" data-action value="Next" />
 			</fieldset>
 
 			<fieldset>
@@ -46,24 +46,24 @@
 				<h3 class="fs-subtitle">We will never sell it</h3>
 				<div class="form-control">
 					<label for="firstname">First Name</label>
-					<input type="text" placeholder="example@domain.com" id="firstname" />
+					<input type="text" placeholder="Ritvik" id="firstname" />
 					<small>Error message</small>
 				</div>
 				<div class="form-control">
 					<label for="lastname">Last Name</label>
-					<input type="text" placeholder="example@domain.com" id="lastname" />
+					<input type="text" placeholder="Gupta" id="lastname" />
 					<small>Error message</small>
 				</div>
 				<div class="form-control">
-					<label for="phone">Phone</label>
-					<input type="text" placeholder="example@domain.com" id="phone" />
+					<label for="phone-number">Phone Number</label>
+					<input type="text" placeholder="8171793812" id="phone-number" />
 					<small>Error message</small>
 				</div>
-				<input type="button" name="previous" class="previous action-button" value="Previous" />
-				<input type="button" name="next" class="next action-button" value="Next" />
+				<input type="button" name="previous" class="previous" data-action value="Previous" />
+				<input type="button" name="next" class="next" data-action value="Next" />
 			</fieldset>
 			<fieldset>
-				<h2 class="fs-title">Social Profiles</h2>
+				<h2 class="fs-title">Social Information</h2>
 				<h3 class="fs-subtitle">Your presence on the social network</h3>
 				<div class="form-control">
 					<label for="address">Address</label>
@@ -71,12 +71,12 @@
 					<small>Error message</small>
 				</div>
 				<div class="form-control">
-					<label for="github">Github</label>
-					<input type="text" placeholder="example@domain.com" id="github" />
+					<label for="github-address">Github Address</label>
+					<input type="text" placeholder="github.com/Ritvik-Gupta" id="github-address" />
 					<small>Error message</small>
 				</div>
-				<input type="button" name="previous" class="previous action-button" value="Previous" />
-				<input type="submit" name="submit" class="submit action-button" value="Submit" />
+				<input type="button" name="previous" class="previous" data-action value="Previous" />
+				<input type="submit" name="submit" class="submit" data-action value="Submit" />
 			</fieldset>
 		</form>
 	</body>
