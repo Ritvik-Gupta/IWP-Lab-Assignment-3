@@ -40,6 +40,13 @@ body {
 	font-family: inherit;
 }
 
+.form-control [data-input-for][disabled] {
+	background-color: #5c5e65;
+	color: white;
+	user-select: none;
+	cursor: help;
+}
+
 .form-control [data-input-for]:focus {
 	outline: none;
 	border-color: #777;
@@ -52,33 +59,6 @@ body {
 
 .form-control.error [data-input-for] {
 	border-color: #e74c3c;
-	animation: shake 250ms ease-in-out;
-}
-
-@keyframes shake {
-	10% {
-		transform: translateX(-2.5%);
-	}
-
-	30% {
-		transform: translateX(2.5%);
-	}
-
-	50% {
-		transform: translateX(-5%);
-	}
-
-	70% {
-		transform: translateX(5%);
-	}
-
-	90% {
-		transform: translateX(-2.5%);
-	}
-
-	100% {
-		transform: translateX(0);
-	}
 }
 
 .form-control small {
@@ -97,8 +77,14 @@ body {
 	visibility: visible;
 }
 
+.input-group {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 10px;
+}
+
 #multi-step-form {
-	width: 45%;
+	width: 60%;
 	min-width: 500px;
 	margin: 30px auto;
 	position: relative;
@@ -134,6 +120,10 @@ body {
 	margin: 10px 5px;
 }
 
+#multi-step-form [data-action="run"] {
+	background: #679b9b;
+}
+
 #multi-step-form [data-action]:hover,
 #multi-step-form [data-action]:focus {
 	box-shadow: 0 0 0 2px #f08a5d, 0 0 0 3px #ff9076;
@@ -165,7 +155,7 @@ body {
 	color: #679b9b;
 	text-transform: uppercase;
 	font-size: 9px;
-	width: 33.33%;
+	width: 20%;
 	float: left;
 	position: relative;
 	transition: background var(--animation-duration) ease-in-out;

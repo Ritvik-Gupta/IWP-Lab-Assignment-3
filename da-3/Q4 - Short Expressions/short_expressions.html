@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="short_expressions_style.css" />
+
+		<script type="text/javascript" src="utils.js" defer></script>
+		<script type="text/javascript" src="page-animations.js" defer></script>
+		<script type="text/javascript" src="validation.js" defer></script>
+		<script type="text/javascript" src="expressions.js" defer></script>
+		<script type="text/javascript" src="main.js" defer></script>
+
+		<title>Short Expressions</title>
+	</head>
+	<body>
+		<!-- Multi Step Form -->
+		<form id="multi-step-form">
+			<!-- Progressbar -->
+			<ul id="progressbar">
+				<li class="active">Extract</li>
+				<li>Replacet</li>
+				<li>Pattern</li>
+				<li>Reverse</li>
+				<li>Dates</li>
+			</ul>
+
+			<!-- Step Forms -->
+			<fieldset data-step-form class="active">
+				<h2 class="title">Extract a Substring</h2>
+				<h3 class="subtitle">Provide a String and Indices</h3>
+				<div class="form-control">
+					<label>String Value</label>
+					<input type="text" placeholder="Hello World" data-input-for="string-value" />
+					<small></small>
+				</div>
+				<div class="input-group">
+					<div class="form-control">
+						<label>Start Index</label>
+						<input type="number" placeholder="1" data-input-for="start-index" />
+						<small></small>
+					</div>
+					<div class="form-control">
+						<label>End Index</label>
+						<input type="number" placeholder="5" data-input-for="end-index" />
+						<small></small>
+					</div>
+				</div>
+				<div class="form-control">
+					<label>Substring Extracted</label>
+					<input disabled type="text" data-input-for="output" />
+					<small></small>
+				</div>
+				<input type="button" name="next" data-action="run" value="Run" />
+				<input type="button" name="next" data-action="next" value="Next" />
+			</fieldset>
+
+			<fieldset data-step-form>
+				<h2 class="title">Replace a Substring</h2>
+				<h3 class="subtitle">Provide Sustring to replace with another string</h3>
+				<div class="form-control">
+					<label>String Value</label>
+					<input type="text" placeholder="Hello World" data-input-for="string-value" />
+					<small></small>
+				</div>
+				<div class="input-group">
+					<div class="form-control">
+						<label>Search Substring</label>
+						<input type="text" data-input-for="search-substring" />
+						<small></small>
+					</div>
+					<div class="form-control">
+						<label>Replacement String</label>
+						<input type="text" data-input-for="replacement-string" />
+						<small></small>
+					</div>
+				</div>
+				<div class="form-control">
+					<label>Substring Extracted</label>
+					<input disabled type="text" data-input-for="output" />
+					<small></small>
+				</div>
+				<input type="button" name="previous" data-action="previous" value="Previous" />
+				<input type="button" name="next" data-action="run" value="Run" />
+				<input type="button" name="next" data-action="next" value="Next" />
+			</fieldset>
+
+			<fieldset data-step-form>
+				<h2 class="title">Pattern Existence</h2>
+				<h3 class="subtitle">Check whether a pattern exists using RegExp</h3>
+				<div class="form-control">
+					<label>String Value</label>
+					<input type="text" placeholder="Hello World" data-input-for="string-value" />
+					<small></small>
+				</div>
+				<div class="form-control">
+					<label>Pattern</label>
+					<input type="text" placeholder="^[a-zA-Z\s]+$" data-input-for="pattern" />
+					<small></small>
+				</div>
+				<div class="form-control">
+					<label>Pattern Exists ?</label>
+					<input disabled type="text" data-input-for="output" />
+					<small></small>
+				</div>
+				<input type="button" name="previous" data-action="previous" value="Previous" />
+				<input type="button" name="next" data-action="run" value="Run" />
+				<input type="button" name="next" data-action="next" value="Next" />
+			</fieldset>
+
+			<fieldset data-step-form>
+				<h2 class="title">Reverse an Array</h2>
+				<h3 class="subtitle">Provide a comma separated array</h3>
+				<div class="form-control">
+					<label>String Value</label>
+					<input type="text" placeholder="1, 2  ,3,4,  5, 6, 7" data-input-for="array" />
+					<small></small>
+				</div>
+				<div class="form-control">
+					<label>Reverse Order</label>
+					<input disabled type="text" data-input-for="output" />
+					<small></small>
+				</div>
+				<input type="button" name="previous" data-action="previous" value="Previous" />
+				<input type="button" name="next" data-action="run" value="Run" />
+				<input type="button" name="next" data-action="next" value="Next" />
+			</fieldset>
+
+			<fieldset data-step-form>
+				<h2 class="title">Difference of Dates</h2>
+				<h3 class="subtitle">Provide the first and second dates</h3>
+				<div class="input-group">
+					<div class="form-control">
+						<label>First Date</label>
+						<input type="date" data-input-for="first-date" />
+						<small></small>
+					</div>
+					<div class="form-control">
+						<label>Second Date</label>
+						<input type="date" data-input-for="second-date" />
+						<small></small>
+					</div>
+				</div>
+				<div class="form-control">
+					<label>Difference</label>
+					<input disabled type="text" data-input-for="output" />
+					<small></small>
+				</div>
+				<input type="button" name="previous" data-action="previous" value="Previous" />
+				<input type="button" name="next" data-action="run" value="Run" />
+			</fieldset>
+		</form>
+	</body>
+</html>
