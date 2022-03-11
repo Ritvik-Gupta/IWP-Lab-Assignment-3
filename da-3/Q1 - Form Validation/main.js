@@ -1,9 +1,6 @@
 const multiStepForm = document.querySelector("#multi-step-form")
 
-multiStepForm.addEventListener("submit", event => {
-	event.preventDefault()
-	console.log("yeah")
-})
+multiStepForm.addEventListener("submit", event => event.preventDefault())
 
 stepForms.forEach(form =>
 	form.addEventListener("keydown", ({ key }) => {
@@ -14,12 +11,9 @@ stepForms.forEach(form =>
 	})
 )
 
-document.querySelectorAll("[data-input-for]").forEach(input =>
-	input.addEventListener("focus", () => {
-		const formControl = input.parentElement
-		formControl.classList.remove("success", "error")
-	})
-)
+document
+	.querySelectorAll("[data-input-for]")
+	.forEach(input => input.addEventListener("focus", () => removeHighlights(input)))
 
 const nextButtons = [...document.querySelectorAll(`[data-action="next"]`)]
 nextButtons.forEach(button =>

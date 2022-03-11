@@ -11,6 +11,11 @@ function setSuccessFor(input) {
 	formControl.classList.add("success")
 }
 
+function removeHighlights(input) {
+	const formControl = input.parentElement
+	formControl.classList.remove("success", "error")
+}
+
 let validate = true
 
 function validateInputs() {
@@ -20,6 +25,8 @@ function validateInputs() {
 			input,
 		])
 	)
+
+	inputs.forEach(removeHighlights)
 
 	const areValidResponses = Array.from(inputs, ([id, input]) => {
 		const inputValue = input.value.trim()

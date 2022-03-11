@@ -18,8 +18,8 @@ body {
 
 .form-control {
 	text-align: left;
-	margin-bottom: 10px;
-	padding-bottom: 20px;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
 	position: relative;
 }
 
@@ -52,6 +52,33 @@ body {
 
 .form-control.error [data-input-for] {
 	border-color: #e74c3c;
+	animation: shake 250ms ease-in-out;
+}
+
+@keyframes shake {
+	10% {
+		transform: translateX(-2.5%);
+	}
+
+	30% {
+		transform: translateX(2.5%);
+	}
+
+	50% {
+		transform: translateX(-5%);
+	}
+
+	70% {
+		transform: translateX(5%);
+	}
+
+	90% {
+		transform: translateX(-2.5%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
 }
 
 .form-control small {
@@ -72,6 +99,7 @@ body {
 
 #multi-step-form {
 	width: 45%;
+	min-width: 500px;
 	margin: 30px auto;
 	position: relative;
 	text-align: center;

@@ -20,8 +20,8 @@ body {
 
 .form-control {
 	text-align: left;
-	margin-bottom: 10px;
-	padding-bottom: 20px;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
 	position: relative;
 }
 
@@ -80,6 +80,7 @@ body {
 
 #multi-step-form {
 	width: 45%;
+	min-width: 500px;
 	margin: 30px auto;
 	position: relative;
 	text-align: center;
