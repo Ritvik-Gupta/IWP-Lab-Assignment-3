@@ -1,4 +1,4 @@
-const progressIndicators = [...document.querySelectorAll("#progressbar li")]
+const progressIndicators = document.querySelectorAll("#progressbar li")
 
 let animating = false
 

@@ -11,26 +11,28 @@ function setSuccessFor(input) {
 	formControl.classList.add("success")
 }
 
+let validate = true
+
 function validateInputs() {
 	const inputs = new Map(
-		[...getAllInputsIn(stepForms[getCurrentStepFormIndex()])].map(input => [
+		[...stepForms[getCurrentStepFormIndex()].querySelectorAll("[data-input-for]")].map(input => [
 			input.dataset.inputFor,
 			input,
 		])
 	)
 
-	return Array.from(inputs, ([id, input]) => {
+	const areValidResponses = Array.from(inputs, ([id, input]) => {
 		const inputValue = input.value.trim()
 		try {
 			switch (id) {
 				case "email":
 					if (inputValue.length === 0) throw "Email cannot be empty"
 
-					const isEmail =
+					const isValidEmail =
 						/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
 							inputValue
 						)
-					if (!isEmail) throw "Invalid Email Format Specified"
+					if (!isValidEmail) throw "Invalid Email Format Specified"
 
 					break
 				case "password":
@@ -54,6 +56,9 @@ function validateInputs() {
 					break
 				case "phone-number":
 					if (inputValue.length === 0) throw "Phone Number must be provided"
+					const isValidPhoneNumber = /^[0-9]{10}$/.test(inputValue)
+					console.log(isValidPhoneNumber)
+					if (!isValidPhoneNumber) throw "Phone Number must have 10 numbers"
 
 					break
 				case "address":
@@ -70,4 +75,6 @@ function validateInputs() {
 			return false
 		}
 	}).every(isValid => isValid)
+
+	return validate ? areValidResponses : true
 }

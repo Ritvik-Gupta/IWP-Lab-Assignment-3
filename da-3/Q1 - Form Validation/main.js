@@ -1,14 +1,27 @@
-document.querySelector("#multi-step-form").addEventListener("submit", e => e.preventDefault())
+const multiStepForm = document.querySelector("#multi-step-form")
 
-getAllInputsIn(document).forEach(input =>
-	input.addEventListener("focus", () => {
-		const formControl = input.parentElement
-		formControl.classList.remove("success")
-		formControl.classList.remove("error")
+multiStepForm.addEventListener("submit", event => {
+	event.preventDefault()
+	console.log("yeah")
+})
+
+stepForms.forEach(form =>
+	form.addEventListener("keydown", ({ key }) => {
+		if (key === "Enter") {
+			const formButtons = form.querySelectorAll("[data-action]")
+			formButtons[formButtons.length - 1].click()
+		}
 	})
 )
 
-const nextButtons = [...document.querySelectorAll(".next")]
+document.querySelectorAll("[data-input-for]").forEach(input =>
+	input.addEventListener("focus", () => {
+		const formControl = input.parentElement
+		formControl.classList.remove("success", "error")
+	})
+)
+
+const nextButtons = [...document.querySelectorAll(`[data-action="next"]`)]
 nextButtons.forEach(button =>
 	button.addEventListener("click", () => {
 		const areValidResponses = validateInputs()
@@ -16,12 +29,14 @@ nextButtons.forEach(button =>
 	})
 )
 
-const previousButtons = [...document.querySelectorAll(".previous")]
+const previousButtons = [...document.querySelectorAll(`[data-action="previous"]`)]
 previousButtons.forEach(button =>
 	button.addEventListener("click", () => performFormSwapAnimations({ updateOf: -1 }))
 )
 
-const submitButton = document.querySelector(".submit")
+const submitButton = document.querySelector(`[data-action="submit"]`)
 submitButton.addEventListener("click", () => {
-	console.log(validateInputs())
+	const areValidResponses = validateInputs()
+	if (areValidResponses) {
+	}
 })
