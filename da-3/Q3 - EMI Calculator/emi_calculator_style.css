@@ -14,7 +14,7 @@ html {
 }
 
 body {
-	font-family: montserrat, arial, verdana;
+	font-family: "Open Sans", arial, verdana;
 	overflow: hidden;
 }
 
@@ -70,6 +70,12 @@ body {
 
 .form-control.error small {
 	visibility: visible;
+}
+
+.input-group {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 10px;
 }
 
 #multi-step-form {
