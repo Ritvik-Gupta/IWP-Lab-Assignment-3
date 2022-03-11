@@ -28,7 +28,9 @@ function validateInputs() {
 
 	inputs.forEach(removeHighlights)
 
-	const areValidResponses = Array.from(inputs, ([id, input]) => {
+	if (!validate) return true
+
+	return Array.from(inputs, ([id, input]) => {
 		const inputValue = input.value.trim()
 		try {
 			switch (id) {
@@ -82,6 +84,4 @@ function validateInputs() {
 			return false
 		}
 	}).every(isValid => isValid)
-
-	return validate ? areValidResponses : true
 }
