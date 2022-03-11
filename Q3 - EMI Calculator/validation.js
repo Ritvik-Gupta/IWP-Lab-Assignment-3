@@ -56,7 +56,7 @@ function validateInputs() {
 					if (inputValue.length === 0) throw "Last Name must be provided"
 
 					break
-				case "phone-number":
+				case "phone":
 					if (inputValue.length === 0) throw "Phone Number must be provided"
 					const isValidPhoneNumber = /^[0-9]{10}$/.test(inputValue)
 					console.log(isValidPhoneNumber)
