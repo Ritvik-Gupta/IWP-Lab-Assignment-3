@@ -12,9 +12,7 @@ class AlertContainer {
 
 		setTimeout(() => {
 			alert.classList.add("hide")
-			alert.addEventListener("transitionend", () => {
-				alert.remove()
-			})
+			alert.addEventListener("transitionend", () => alert.remove())
 		}, duration)
 	}
 }
