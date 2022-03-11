@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="emi_calculator_style.css" />
+
+		<script type="text/javascript" src="utils.js" defer></script>
+		<script type="text/javascript" src="page-animations.js" defer></script>
+		<script type="text/javascript" src="validation.js" defer></script>
+		<script type="text/javascript" src="main.js" defer></script>
+
+		<title>Form Validation</title>
+	</head>
+	<body>
+		<!-- Multi Step Form -->
+		<form id="multi-step-form">
+			<!-- Progressbar -->
+			<ul id="progressbar">
+				<li class="active">Account Setup</li>
+				<li>Personal Details</li>
+				<li>Social Information</li>
+			</ul>
+
+			<!-- Step Forms -->
+			<fieldset data-step-form class="active">
+				<h2 class="title">Create your account</h2>
+				<h3 class="subtitle"></h3>
+				<div class="form-control">
+					<label>Email</label>
+					<input type="text" placeholder="example@domain.com" data-input-for="email" />
+					<small>Error message</small>
+				</div>
+				<div class="form-control">
+					<label>Password</label>
+					<input type="password" data-input-for="password" />
+					<small>Error message</small>
+				</div>
+				<div class="form-control">
+					<label>Confirm Password</label>
+					<input type="password" data-input-for="confirm-password" />
+					<small>Error message</small>
+				</div>
+				<input type="button" name="next" data-action="next" value="Next" />
+			</fieldset>
+
+			<fieldset data-step-form>
+				<h2 class="title">Personal Details</h2>
+				<h3 class="subtitle">We will never sell it</h3>
+				<div class="form-control">
+					<label>First Name</label>
+					<input type="text" placeholder="Ritvik" data-input-for="firstname" />
+					<small>Error message</small>
+				</div>
+				<div class="form-control">
+					<label>Last Name</label>
+					<input type="text" placeholder="Gupta" data-input-for="lastname" />
+					<small>Error message</small>
+				</div>
+				<div class="form-control">
+					<label>Phone Number</label>
+					<input type="number" placeholder="8171793812" data-input-for="phone-number" />
+					<small>Error message</small>
+				</div>
+				<input type="button" name="previous" data-action="previous" value="Previous" />
+				<input type="button" name="next" data-action="next" value="Next" />
+			</fieldset>
+
+			<fieldset data-step-form>
+				<h2 class="title">Social Information</h2>
+				<h3 class="subtitle">Your presence on the social network</h3>
+				<div class="form-control">
+					<label>Address</label>
+					<textarea data-input-for="address"></textarea>
+					<small>Error message</small>
+				</div>
+				<div class="form-control">
+					<label>Github Address</label>
+					<input
+						type="text"
+						placeholder="github.com/Ritvik-Gupta"
+						data-input-for="github-address"
+					/>
+					<small>Error message</small>
+				</div>
+				<input type="button" name="previous" data-action="previous" value="Previous" />
+				<input type="button" name="submit" data-action="submit" value="Submit" />
+			</fieldset>
+		</form>
+	</body>
+</html>
