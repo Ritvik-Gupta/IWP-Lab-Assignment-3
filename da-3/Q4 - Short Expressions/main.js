@@ -19,11 +19,7 @@ document.querySelectorAll("[data-input-for]").forEach(input =>
 )
 
 const runButtons = [...document.querySelectorAll(`[data-action="run"]`)]
-runButtons.forEach(button =>
-	button.addEventListener("click", () => {
-		computeExpressions()
-	})
-)
+runButtons.forEach(button => button.addEventListener("click", computeExpressions))
 
 const nextButtons = [...document.querySelectorAll(`[data-action="next"]`)]
 nextButtons.forEach(button =>
