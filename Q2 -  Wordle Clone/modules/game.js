@@ -16,7 +16,7 @@ class Game {
 	}
 
 	startInteraction = () => {
-		document.addEventListener("click", this.handleMouseClick, this)
+		document.addEventListener("click", this.handleMouseClick)
 		document.addEventListener("keydown", this.handleKeyPress)
 	}
 
