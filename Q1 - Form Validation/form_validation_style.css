@@ -13,7 +13,7 @@ html {
 
 body {
 	font-family: "Open Sans", arial, verdana;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .form-control {

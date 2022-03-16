@@ -1,41 +1,43 @@
-const multiStepForm = document.querySelector("#multi-step-form")
+const form = document.querySelector("#form")
 
-multiStepForm.addEventListener("submit", event => {
-	event.preventDefault()
-})
+form.addEventListener("submit", e => {
+	e.preventDefault()
 
-stepForms.forEach(form =>
-	form.addEventListener("keydown", ({ key }) => {
-		if (key === "Enter") {
-			const formButtons = form.querySelectorAll("[data-action]")
-			formButtons[formButtons.length - 1].click()
-		}
-	})
-)
+	const fullAmount = parseInt(form.querySelector("#full-amount").value)
+	const months = parseInt(form.querySelector("#months").value)
+	const rate = parseInt(form.querySelector("#rate").value)
 
-document.querySelectorAll("[data-input-for]").forEach(input =>
-	input.addEventListener("focus", () => {
-		const formControl = input.parentElement
-		formControl.classList.remove("success", "error")
-	})
-)
+	const monthlyInterestRate = rate / 100 / 12
 
-const nextButtons = [...document.querySelectorAll(`[data-action="next"]`)]
-nextButtons.forEach(button =>
-	button.addEventListener("click", () => {
-		const areValidResponses = validateInputs()
-		if (areValidResponses) performFormSwapAnimations({ updateOf: 1 })
-	})
-)
+	const emi =
+		fullAmount *
+		monthlyInterestRate *
+		((1 + monthlyInterestRate) ** months / ((1 + monthlyInterestRate) ** months - 1))
 
-const previousButtons = [...document.querySelectorAll(`[data-action="previous"]`)]
-previousButtons.forEach(button =>
-	button.addEventListener("click", () => performFormSwapAnimations({ updateOf: -1 }))
-)
+	console.log("Full Amount :\t", fullAmount)
+	console.log("Number of Months :\t", months)
+	console.log("Monthly Interest Rate :\t", monthlyInterestRate)
+	console.log("EMI Computed :\t", emi)
 
-const submitButton = document.querySelector(`[data-action="submit"]`)
-submitButton.addEventListener("click", () => {
-	const areValidResponses = validateInputs()
-	if (areValidResponses) {
+	let principalOutstanding = fullAmount
+
+	const data = []
+	for (let i = 0; i < months; ++i) {
+		const principal = principalOutstanding
+		const interest = principal * monthlyInterestRate
+		const principalRepayment = emi - interest
+		principalOutstanding = principal - principalRepayment
+
+		const loanRepaidPercentage = 100 * (1 - principalOutstanding / fullAmount)
+
+		data.push({
+			principal: principal.toFixed(2),
+			interest: interest.toFixed(2),
+			principalRepayment: principalRepayment.toFixed(2),
+			principalOutstanding: principalOutstanding.toFixed(2),
+			loanRepaidPercentage: loanRepaidPercentage.toFixed(2),
+		})
 	}
+
+	console.table(data)
 })
