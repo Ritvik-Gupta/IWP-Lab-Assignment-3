@@ -11,6 +11,7 @@
 		<title>EMI Calculator</title>
 	</head>
 	<body>
+		<a href="#emi-table" class="hidden"></a>
 		<div class="container">
 			<div class="header">
 				<h2>EMI Calculator</h2>
@@ -31,5 +32,19 @@
 				<button>Compute EMI</button>
 			</form>
 		</div>
+
+		<table id="emi-table">
+			<thead>
+				<tr
+					><th>Month</th>
+					<th>Principal</th>
+					<th>Interest</th>
+					<th>Principal Repayment</th>
+					<th>Principal Outstanding</th>
+					<th>Percentage of Loan Repaid</th>
+				</tr>
+			</thead>
+			<tbody monthly-emi-table></tbody>
+		</table>
 	</body>
 </html>
