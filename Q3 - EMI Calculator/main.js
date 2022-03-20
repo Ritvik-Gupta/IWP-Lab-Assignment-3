@@ -1,11 +1,10 @@
 const form = document.querySelector("#form")
 const table = document.querySelector("[monthly-emi-table]")
+const emiOutput = document.querySelector("#emi")
 const emiTableScroller = document.querySelector(`a[href="#emi-table"]`)
 
 form.addEventListener("submit", e => {
 	e.preventDefault()
-
-	table.innerHTML = ""
 
 	const fullAmount = parseInt(form.querySelector("#full-amount").value)
 	const months = parseInt(form.querySelector("#months").value)
@@ -41,13 +40,18 @@ form.addEventListener("submit", e => {
 			"Principal Outstanding": principalOutstanding.toFixed(2),
 			"Percentage of Loan Repaid": `${loanRepaidPercentage.toFixed(2)} %`,
 		})
+	}
 
+	console.table(data)
+
+	table.innerHTML = ""
+	emiOutput.value = emi.toFixed(2)
+
+	for (let i = 0; i < months; ++i) {
 		let row = `<td>${i + 1}</td>`
 		for (key in data[i]) row += `<td>${data[i][key]}</td>`
 		table.innerHTML += `<tr>${row}</tr>`
 	}
 
 	emiTableScroller.click()
-
-	console.table(data)
 })
